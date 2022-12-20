@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MedecinController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,18 +17,60 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// login
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
-Route::get('/dashboard', function () {
+//dashboard route
+Route::get('/', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+
+
+
+//admin
+Route::middleware('auth' , 'role:admin')->group(function () {
+    Route::get('/admin', function () {return Inertia::render('Admin/Dashboard');})->name('admin');
+    Route::resource('/admin/medecins', MedecinController::class);
+    Route::get('/admin/medecins/search/{keyword}', [MedecinController::class, 'search'])->name('medecins.search');
+    Route::get('/admin/medecins/orgnise/{type}', [MedecinController::class, 'orgnise'])->name('medecins.orgnise');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//docteur
+Route::middleware('auth' , 'role:medecin')->group(function () {
+    Route::get('/medecin', function () {return Inertia::render('Medecin/Dashboard');})->name('medecin');
+});
+
+//receptionniste
+Route::middleware('auth' , 'role:receptionniste')->group(function () {
+    Route::get('/receptionniste', function () {return Inertia::render('receptionniste/Dashboard');})->name('receptionniste');
+});
 
 Route::middleware('auth' , 'role:admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

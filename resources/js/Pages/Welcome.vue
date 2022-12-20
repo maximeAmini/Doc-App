@@ -18,9 +18,9 @@ defineProps({
         <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             <Link
                 v-if="$page.props.auth.user"
-                :href="route('dashboard')"
+                :href="route('admin')"
                 class="text-sm text-gray-700 dark:text-gray-500 underline"
-                >Dashboard</Link
+                >admin</Link
             >
 
             <template v-else>
