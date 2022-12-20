@@ -52,8 +52,8 @@ import NavLink from "@/Components/NavLink.vue";
             <i class="fa-solid fa-hospital-user mr-2"></i> Patient
             </NavLink>
             <NavLink
-                :href="route('receptionniste')"
-                :active="route().current('receptionniste')"
+            :href="route('rdvs.index')"
+                :active="route().current('rdvs.index') || route().current('rdvs.create') || route().current('rdvs.edit') || route().current('rdvs.show')"
             >
             <i class="fa-solid fa-calendar-days mr-2"></i> Rendez-vous
             </NavLink>

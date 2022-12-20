@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MedecinController;
 use App\Http\Controllers\ReceptionnisteController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\RdvController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,6 +32,10 @@ Route::middleware('auth' , 'role:receptionniste')->group(function () {
     Route::resource('receptionniste/patients', PatientController::class);
     Route::get('receptionniste/patients/search/{keyword}', [PatientController::class, 'search'])->name('patients.search');
     Route::get('receptionniste/patients/orgnise/{type}', [PatientController::class, 'orgnise'])->name('patients.orgnise');
+    //gestion des rdvs
+    Route::resource('receptionniste/rdvs', RdvController::class);
+    Route::get('receptionniste/rdvs/search/{keyword}', [RdvController::class, 'search'])->name('rdvs.search');
+    Route::get('receptionniste/rdvs/orgnise/{type}', [RdvController::class, 'orgnise'])->name('rdvs.orgnise');
 });
 //profile
 Route::middleware('auth')->group(function () {

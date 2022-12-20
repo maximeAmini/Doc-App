@@ -21,4 +21,8 @@ class Patient extends Model
         'taille',
         'poids',
     ];
+
+    public function rdvs(){
+        return $this->hasMany(Rdv::class); 
+    }
 }

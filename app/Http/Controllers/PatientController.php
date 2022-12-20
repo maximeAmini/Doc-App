@@ -8,7 +8,6 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
-use App\Models\User;
 use App\Models\Patient;
 use Auth;
 
@@ -142,10 +141,7 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        $Patient = Patient::get()->where('id', $id)->first();
-        $user_id = $Patient->user_id;
         $pro = Patient::where('id', $id)->delete();
-        $pro = User::where('id', $user_id)->delete();
     }
 
 
