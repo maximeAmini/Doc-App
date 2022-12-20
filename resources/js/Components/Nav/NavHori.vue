@@ -6,7 +6,7 @@ import NavLink from "@/Components/NavLink.vue";
     <nav
         class="hidden sm:block h-screen border-r border-gray-100 fixed bg-white w-52 z-50"
     >
-        <h1 class="font-bold text-xl text-center px-4 pt-4">Smart Care</h1>
+        <h1 class="font-bold text-xl text-center px-4 pt-4">Smart Doc</h1>
 
         <div class="img h-40 flex text-white">
             <div class="font-bold text-xl p-4 mt-auto">
@@ -15,7 +15,8 @@ import NavLink from "@/Components/NavLink.vue";
             </div>
         </div>
 
-        <div class="w-full flex flex-col items-center p-4">
+        <!-- admin nav -->
+        <div class="w-full flex flex-col items-center p-4" v-if="$page.props.auth.user.role=='admin'">
             <NavLink
                 :href="route('admin')"
                 :active="route().current('admin')"
@@ -29,12 +30,17 @@ import NavLink from "@/Components/NavLink.vue";
                 <i class="fa-solid fa-user-doctor mr-2"></i> Médecins
             </NavLink>
             <NavLink
-                :href="route('admin')"
-                :active="route().current('admin')"
+                :href="route('receptionnistes.index')"
+                :active="route().current('receptionnistes.index') || route().current('receptionnistes.create') || route().current('receptionnistes.edit') || route().current('receptionnistes.show')"
             >
                 <i class="fa-solid fa-user-tie mr-2"></i> Réceptionnistes
             </NavLink>
         </div>
+
+
+
+
+        
 
         <div class="w-full absolute bottom-0 p-4 border-t">
                 <NavLink

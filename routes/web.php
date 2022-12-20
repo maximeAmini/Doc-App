@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MedecinController;
+use App\Http\Controllers\ReceptionnisteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +29,9 @@ use Inertia\Inertia;
 // });
 
 //dashboard route
-Route::get('/', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -40,9 +41,14 @@ Route::get('/', function () {
 //admin
 Route::middleware('auth' , 'role:admin')->group(function () {
     Route::get('/admin', function () {return Inertia::render('Admin/Dashboard');})->name('admin');
+    //gestion des medecins
     Route::resource('/admin/medecins', MedecinController::class);
     Route::get('/admin/medecins/search/{keyword}', [MedecinController::class, 'search'])->name('medecins.search');
     Route::get('/admin/medecins/orgnise/{type}', [MedecinController::class, 'orgnise'])->name('medecins.orgnise');
+    //gestion des Receptionnistes
+    Route::resource('/admin/receptionnistes', ReceptionnisteController::class);
+    Route::get('/admin/receptionnistes/search/{keyword}', [ReceptionnisteController::class, 'search'])->name('receptionnistes.search');
+    Route::get('/admin/receptionnistes/orgnise/{type}', [ReceptionnisteController::class, 'orgnise'])->name('receptionnistes.orgnise');
 });
 
 
@@ -69,7 +75,7 @@ Route::middleware('auth' , 'role:medecin')->group(function () {
 
 //receptionniste
 Route::middleware('auth' , 'role:receptionniste')->group(function () {
-    Route::get('/receptionniste', function () {return Inertia::render('receptionniste/Dashboard');})->name('receptionniste');
+    Route::get('/receptionniste', function () {return Inertia::render('Receptionniste/Dashboard');})->name('receptionniste');
 });
 
 Route::middleware('auth' , 'role:admin')->group(function () {
