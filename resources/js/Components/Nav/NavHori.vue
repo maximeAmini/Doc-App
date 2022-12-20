@@ -37,6 +37,28 @@ import NavLink from "@/Components/NavLink.vue";
             </NavLink>
         </div>
 
+        <!-- recep nav -->
+        <div class="w-full flex flex-col items-center p-4" v-if="$page.props.auth.user.role=='receptionniste'">
+            <NavLink
+                :href="route('receptionniste')"
+                :active="route().current('receptionniste')"
+            >
+                <i class="fa-solid fa-heart-pulse mr-2"></i> Tableau de bord
+            </NavLink>
+            <NavLink
+            :href="route('patients.index')"
+                :active="route().current('patients.index') || route().current('patients.create') || route().current('patients.edit') || route().current('patients.show')"
+            >
+            <i class="fa-solid fa-hospital-user mr-2"></i> Patient
+            </NavLink>
+            <NavLink
+                :href="route('receptionniste')"
+                :active="route().current('receptionniste')"
+            >
+            <i class="fa-solid fa-calendar-days mr-2"></i> Rendez-vous
+            </NavLink>
+        </div>
+
 
 
 
