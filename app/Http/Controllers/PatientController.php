@@ -159,4 +159,9 @@ class PatientController extends Controller
 
         return $Patients;
     }
+
+    public function nb(){
+        $count = Patient::get()->count();
+        return $count;
+    }
 }

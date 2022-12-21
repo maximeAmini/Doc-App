@@ -108,7 +108,7 @@ export default {
                 <nav aria-label="Breadcrumb" class="text-sm font-semibold mb-8">
                     <ol class="list-none p-0 inline-flex items-center ">
                         <li class="flex items-center">
-                            <Link :href="route('dashboard')" alt="Dashboard" class="text-black">Dashboard</Link>
+                            <Link :href="route('admin')" alt="Dashboard" class="text-black">Tableau de bord</Link>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-solid fa-angle-right mx-2 text-xs text-black"></i>
@@ -199,7 +199,7 @@ export default {
                 <button type="button" alt="Delete All Selection"
                     class="block mt-8 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ml-auto"
                     @click="deleteAll">
-                    <i class="fa-regular fa-trash-can mr-1"></i> Delete All Selection
+                    <i class="fa-regular fa-trash-can mr-1"></i> Supprimer toute la Selection
                 </button>
             </div>
         </AuthenticatedLayout>

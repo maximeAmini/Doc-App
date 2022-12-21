@@ -181,7 +181,7 @@ export default {
                                 <td class="px-6 py-4">
                                     {{ rdv.patient.tel }}
                                 </td>
-                                <td class="px-6 py-4 text-red-400">
+                                <td class="px-6 py-4 text-red-600 font-extrabold">
                                     {{ rdv.date }} à {{ rdv.heure }}
                                 </td>
                             </tr>

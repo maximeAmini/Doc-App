@@ -63,6 +63,11 @@ export default {
                 console.log(this.patients2)
             });
         },
+        getNb(id){
+            axios.get(route("rdvs.nb", id)).then((res) => {
+                return res.data
+            });
+        }
     },
     mounted() {
         this.patients2 = this.patients;
@@ -96,7 +101,7 @@ export default {
                 <span type="submit" class="absolute right-0 top-0 mt-2 mr-4">
                     <i class="fa-solid fa-magnifying-glass fill-current"></i>
                 </span>
-                <input type="text" name="serch" placeholder="Search patient..."
+                <input type="text" name="serch" placeholder="Rechercher un patient par son nom ou prénom..."
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-black focus:border-black block w-full p-2.5"
                     v-model="searchInput" @input="searchFunc" />
             </div>
@@ -108,7 +113,7 @@ export default {
                 <nav aria-label="Breadcrumb" class="text-sm font-semibold mb-8">
                     <ol class="list-none p-0 inline-flex items-center ">
                         <li class="flex items-center">
-                            <Link :href="route('receptionniste')" alt="Dashboard" class="text-black">Dashboard</Link>
+                            <Link :href="route('receptionniste')" alt="Dashboard" class="text-black">Tableau de bord</Link>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-solid fa-angle-right mx-2 text-xs text-black"></i>
@@ -191,7 +196,7 @@ export default {
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-green-400">
-                                       0 rdv
+                                       {{getNb(patient.id)}} rdv
                                     </div>
                                 </td>
                             </tr>
@@ -203,7 +208,7 @@ export default {
                 <button type="button" alt="Delete All Selection"
                     class="block mt-8 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ml-auto"
                     @click="deleteAll">
-                    <i class="fa-regular fa-trash-can mr-1"></i> Delete All Selection
+                    <i class="fa-regular fa-trash-can mr-1"></i> Supprimer toute Selection
                 </button>
             </div>
         </AuthenticatedLayout>

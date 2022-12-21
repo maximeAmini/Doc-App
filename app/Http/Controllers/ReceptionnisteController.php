@@ -148,4 +148,9 @@ class ReceptionnisteController extends Controller
 
         return $Receptionnistes;
     }
+
+    public function nb(){
+        $count = Receptionniste::get()->count();
+        return $count;
+    }
 }

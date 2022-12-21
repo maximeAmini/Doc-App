@@ -153,4 +153,9 @@ class MedecinController extends Controller
 
         return $medecins;
     }
+
+    public function nb(){
+        $count = Medecin::get()->count();
+        return $count;
+    }
 }

@@ -38,7 +38,7 @@ const submit = () => {
                 <nav aria-label="Breadcrumb" class="text-sm font-semibold mb-6">
                     <ol class="list-none p-0 inline-flex items-center ">
                         <li class="flex items-center">
-                            <Link :href="route('dashboard')" alt="Dashboard" class="text-black">Dashboard</Link>
+                            <Link :href="route('admin')" alt="Dashboard" class="text-black">Tableau de bord</Link>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-solid fa-angle-right mx-2 text-xs text-black"></i>
@@ -154,7 +154,7 @@ const submit = () => {
 
                             <div class="w-full flex justify-end items-end mt-6">
                                 <button type="submit"
-                                    class="ml-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+                                    class="ml-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Ajouter</button>
                             </div>
 
                         </form>

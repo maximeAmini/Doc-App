@@ -125,4 +125,14 @@ class RdvController extends Controller
 
         return $rdvs;
     }
+
+    public function nbnbById($id){
+        $count = Rdv::get()->where('patient_id', $id)->count();
+        return $count;
+    }
+
+    public function nb(){
+        $count = Rdv::get()->count();
+        return $count;
+    }
 }

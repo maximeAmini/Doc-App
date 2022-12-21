@@ -36,6 +36,14 @@ Route::middleware('auth' , 'role:receptionniste')->group(function () {
     Route::resource('receptionniste/rdvs', RdvController::class);
     Route::get('receptionniste/rdvs/search/{keyword}', [RdvController::class, 'search'])->name('rdvs.search');
     Route::get('receptionniste/rdvs/orgnise/{type}', [RdvController::class, 'orgnise'])->name('rdvs.orgnise');
+    Route::get('receptionniste/rdvs/nbById/{id}', [RdvController::class, 'nbById'])->name('rdvs.nbById');
+});
+//nb
+Route::middleware('auth')->group(function () {
+Route::get('admin/medecins/nb/nb', [MedecinController::class, 'nb'])->name('medecins.nb');
+Route::get('admin/receptionnistes/nb/nb', [ReceptionnisteController::class, 'nb'])->name('receptionnistes.nb');
+Route::get('receptionniste/rdvs/nb/nb', [RdvController::class, 'nb'])->name('rdvs.nb');
+Route::get('receptionniste/patients/nb/nb', [PatientController::class, 'nb'])->name('patients.nb');
 });
 //profile
 Route::middleware('auth')->group(function () {
