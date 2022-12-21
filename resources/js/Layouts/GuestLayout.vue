@@ -1,16 +1,6 @@
-<script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/inertia-vue3';
-</script>
-
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-            </Link>
-        </div>
-
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 img">
+        
         <div
             class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
         >
@@ -18,3 +8,10 @@ import { Link } from '@inertiajs/inertia-vue3';
         </div>
     </div>
 </template>
+
+<style scoped>
+.img {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3cpath d='M1488 560L0 560 L0 173.68Q75.23 176.92%2c 72 252.15Q59.3 167.45%2c 144 154.75Q188.26 79.02%2c 264 123.28Q305.5 92.78%2c 336 134.28Q430.44 156.72%2c 408 251.16Q449.84 173%2c 528 214.83Q614.74 181.57%2c 648 268.31Q651.88 200.19%2c 720 204.06Q727.53 139.59%2c 792 147.13Q838.53 73.66%2c 912 120.2Q977.18 65.38%2c 1032 130.57Q1142.57 121.14%2c 1152 231.71Q1180.57 188.28%2c 1224 216.84Q1261.44 134.28%2c 1344 171.73Q1373.47 129.2%2c 1416 158.67Q1438.99 109.66%2c 1488 132.66z' fill='rgba(255%2c 124%2c 80%2c 1)'%3e%3c/path%3e%3cpath d='M1512 560L0 560 L0 268.49Q76.54 225.03%2c 120 301.58Q125.51 235.09%2c 192 240.6Q221.29 197.89%2c 264 227.18Q357.59 200.77%2c 384 294.36Q422.19 212.55%2c 504 250.73Q594.2 220.93%2c 624 311.13Q681.44 296.57%2c 696 354.02Q720.85 306.87%2c 768 331.72Q768.61 260.33%2c 840 260.93Q883.05 183.99%2c 960 227.04Q1040.67 235.71%2c 1032 316.39Q1099.63 312.02%2c 1104 379.65Q1115.05 318.69%2c 1176 329.74Q1168.09 249.83%2c 1248 241.92Q1362.03 235.94%2c 1368 349.97Q1380.69 290.67%2c 1440 303.36Q1441.89 233.25%2c 1512 235.15z' fill='rgba(100%2c 58%2c 106%2c 1)'%3e%3c/path%3e%3cpath d='M1464 560L0 560 L0 415.03Q85.09 380.12%2c 120 465.21Q137.55 362.76%2c 240 380.31Q278.84 299.15%2c 360 338Q403.96 309.96%2c 432 353.92Q496.32 346.25%2c 504 410.57Q579.43 366%2c 624 441.44Q654.29 351.73%2c 744 382.01Q818.33 336.34%2c 864 410.66Q930.8 357.46%2c 984 424.26Q1012.5 332.75%2c 1104 361.25Q1157 294.25%2c 1224 347.25Q1324.18 327.44%2c 1344 427.62Q1390.32 353.94%2c 1464 400.26z' fill='rgba(194%2c 211%2c 219%2c 1)'%3e%3c/path%3e%3cpath d='M1560 560L0 560 L0 515.24Q92.73 487.97%2c 120 580.69Q186.97 527.66%2c 240 594.64Q259.78 542.42%2c 312 562.2Q327.62 457.82%2c 432 473.44Q486.37 407.81%2c 552 462.17Q666.68 456.85%2c 672 571.53Q674.75 502.27%2c 744 505.02Q754.21 443.23%2c 816 453.44Q859.6 425.04%2c 888 468.65Q985.58 446.23%2c 1008 543.81Q1055.45 519.26%2c 1080 566.72Q1083.55 450.27%2c 1200 453.82Q1280.43 414.25%2c 1320 494.69Q1398.02 452.71%2c 1440 530.72Q1522.38 493.1%2c 1560 575.47z' fill='rgba(234%2c 223%2c 222%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+}
+</style>
