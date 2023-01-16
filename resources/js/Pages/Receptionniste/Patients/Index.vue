@@ -63,7 +63,7 @@ export default {
                 console.log(this.patients2)
             });
         },
-        getNb(id){
+        getNb(id) {
             axios.get(route("rdvs.nb", id)).then((res) => {
                 return res.data
             });
@@ -107,13 +107,14 @@ export default {
             </div>
 
             <div class="py-4 sm:py-6">
-                
+
                 <!-- mini nav -->
                 <hr class="pb-4" />
                 <nav aria-label="Breadcrumb" class="text-sm font-semibold mb-8">
                     <ol class="list-none p-0 inline-flex items-center ">
                         <li class="flex items-center">
-                            <Link :href="route('receptionniste')" alt="Dashboard" class="text-black">Tableau de bord</Link>
+                            <Link :href="route('receptionniste')" alt="Dashboard" class="text-black">Tableau de bord
+                            </Link>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-solid fa-angle-right mx-2 text-xs text-black"></i>
@@ -160,8 +161,8 @@ export default {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b hover:bg-gray-50"
-                                v-for="patient in patients2" :key="patient.id">
+                            <tr class="bg-white border-b hover:bg-gray-50" v-for="patient in patients2"
+                                :key="patient.id">
                                 <td class="w-4 p-4">
                                     <div class="flex items-center">
                                         <input id="checkbox-table-1" type="checkbox"
@@ -169,19 +170,15 @@ export default {
                                             :value="patient.id" v-model="checkGroupe" />
                                     </div>
                                 </td>
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    <span class="mr-2 font-bold">{{patient.civilite}}</span>{{ patient.nom+' '+patient.prenom }}
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <span class="mr-2 font-bold">{{ patient.civilite }}</span>{{ patient.nom + ' ' +patient.prenom }}
                                     <div class="mt-2">
-                                        <i @click="deletepatient(patient.id)"
-                                            class="fa-regular fa-trash-can mr-4 text-red-600 fa-lg cursor-pointer"></i>
-                                        <Link :href="
-                                            route(
-                                                'patients.edit',
-                                                patient.id
-                                            )
-                                        "><i
-                                            class="fa-regular fa-pen-to-square text-green-600 fa-lg cursor-pointer"></i>
+                                        <Link :href="route('patients.show', patient.id)">
+                                        <i class="fa-regular fa-eye mr-3 text-blue-600 fa-lg cursor-pointer"></i>
+                                        </Link>
+                                        <i @click="deletepatient(patient.id)" class="fa-regular fa-trash-can mr-3 text-red-600 fa-lg cursor-pointer"></i>
+                                        <Link :href="route('patients.edit', patient.id)">
+                                        <i class="fa-regular fa-pen-to-square text-green-600 fa-lg cursor-pointer"></i>
                                         </Link>
                                     </div>
                                 </th>
@@ -196,7 +193,7 @@ export default {
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-green-400">
-                                       {{getNb(patient.id)}} rdv
+                                        {{ getNb(patient.id) }} rdv
                                     </div>
                                 </td>
                             </tr>

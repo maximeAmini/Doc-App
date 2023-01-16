@@ -74,7 +74,11 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        
+        $patient = Patient::get()->where('id', $id)->first();
+
+        return Inertia::render('Receptionniste/Patients/Show', [
+            'patient' => $patient
+        ]);
     }
 
     /**
